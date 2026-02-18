@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount static files for live editing during development
+      - ./static:/app/static:ro
+    environment:
+      - PORT=8080
+    restart: unless-stopped
